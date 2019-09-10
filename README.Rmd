@@ -47,19 +47,20 @@ devtools::create("path/package_name")
   ```{r  eval = FALSE}
   form <- Sepal.Length ~ .
   ```
-  is just setting a formula for the matrix, which should be one of the inputs for this assignment
+  is just setting a formula for the matrix, which should be one of the inputs for this assignment  
   
 #### Now, making this a function:  
 + I need to import tibble I think  
-+ Made dummy variables for all inputs
-+ Built matrix X  using model.matrix  function
-+ Dealing with "list of constants for factor variables"
-  - I looked at the test file for this because honestly didn't understand what it wanted me to do
-  - These constants are optional, only when the user puts them in, so I'm going to have a replace function for if it is not null? Maybe?
-  - I am goin
++ Made dummy variables for all inputs  
++ Built matrix X  using model.matrix  function  
++ Dealing with "list of constants for factor variables"  
+  - I looked at the test file for this because honestly didn't understand what it wanted me to do  
+  - These constants are optional, only when the user puts them in, so I'm going to have a replace function for if it is not null? Maybe?  
+  - I am goin  
 
-#####Questions to ask:  
-+ How to resolve Travis thing (is this because all my github accounts are associated  with my gmail?)
-+ What is a transposition? Why is it used?
-+ Clarify what he means us to do with the constants for factor variables
-+ How to submit (fork, sandbox, or create own repository)
+##### Questions to ask:  
++ How to resolve Travis thing (is this because all my github accounts are associated  with my gmail?)  
++ What is a transposition? Why is it used?  
++ Clarify what he means us to do with the constants for factor variables  
++ How to submit (fork, sandbox, or create own repository)  
++ Why is my beautiful markdown file not being recognized  
