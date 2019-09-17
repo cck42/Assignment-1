@@ -15,7 +15,7 @@ Assignment 1 Lessons
 
     ## 
     ## The downloaded binary packages are in
-    ##  /var/folders/9v/4_r87pxs7v5b41b99yywrlqc0000gn/T//Rtmp8QizPY/downloaded_packages
+    ##  /var/folders/9v/4_r87pxs7v5b41b99yywrlqc0000gn/T//RtmpBglc5p/downloaded_packages
 
 -   Then, create the package by entering:
 

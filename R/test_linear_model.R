@@ -10,16 +10,27 @@
 #'
 
 
-linear_model <- function(raw_data, form, constants){
+F <- function(beta, Y, X){
+   drop(t(Y) %*%  Y + t(beta) %*% t(X) %*% X %*% beta - 2 *  t(Y) %*% X  %*% beta)
+}
+dF <- function(beta, Y, X){
+  (2 * t(X) %*%  X  %*% beta - 2 *  t(X) %*%  Y)
+}
 
-  if(!is.null(contrasts)){
-
+linear_model <- function(form, data, constants = NULL){
+  if(!is.null(constants)){
+    #however you want to deal with the factor levels
   }
+  #Make a model matrix
+  X <- model.matrix(form, data)
+  Y <- matrix(data[,1],ncol = 1)
 
-  #first make a matrix from the data frame
-  dataX <- model.matrix(f,rdat)
-  dataY <- matrix(raw_data[,1],ncol=1)
-
-  #then solve
-  beta <- solve( t(dataX) %*% dataX ) %*% t(dataX) %*% dataY
+  beta_k <- matrix(1, ncol = 1, nrow = ncol(data)+1)
+  beta_k_new <- matrix(18, ncol = 1, nrow = ncol(data)+1)
+  while(!isTRUE(all.equal(beta_k, beta_k_new, tolerance = 1e-6))){
+    beta_k <- beta_k_new
+    F(beta_k_new, Y, X)
+    beta_k_new <- beta_k -  0.0001 * dF(beta_k_new, Y, X)
+  }
+ return(beta_k_new)
 }
