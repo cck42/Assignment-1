@@ -1,14 +1,15 @@
 Package: linearmodel
 Title: What the Package Does (One Line, Title Case)
-Version: 0.0.0.1
+Version: 0.0.0.9000
 Authors@R: 
-    person(given = "Chaney",
-           family = "Kalinich",
+    person(given = "First",
+           family = "Last",
            role = c("aut", "cre"),
-           email = "chaney.kalinich@yale.edu",
-Description: This is the first assignment for BIS557. The package (at least in theory) includes a function for taking a data set (as a frame), along with a formula and a list of constants to be used for factor variables, and performs a linear model regression onto the first column. The package includes a data.frame called "lm_patho.csv" for use in testing and examples. Finally, it includes a testing file ("test-linear-model.r") for testing.
-
-lm_patho.csv and test-linear-model.r were produced by the professor and downloaded from https://github.com/BIS557/homework-1-cck42.git. The package was written by me, based on a template package produced in class and available at https://github.com/BIS557/bis557-2019/tree/master/9-9. Any copied and pasted code will have an associated note in the code detailing how much I wrote.
-License: GNU AGPLv3
+           email = "first.last@example.com",
+           comment = c(ORCID = "YOUR-ORCID-ID"))
+Description: What the package does (one paragraph).
+License: What license it uses
 Encoding: UTF-8
 LazyData: true
+Suggests: 
+    testthat (>= 2.1.0)
