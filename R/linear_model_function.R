@@ -9,20 +9,35 @@
 #'
 #'
 
-#---------------------------------------------------------
-#the following will (hopefully) solve directly
-#---------------------------------------------------------
+#-----------------------------------------------------------------------------
+#the following will (hopefully) solve directly or do QR composition if needed
+#-----------------------------------------------------------------------------
 
 linear_model <- function(form, data, contrasts = NULL){
   #Make a model matrix
   X <- model.matrix(form, data,  contrasts.arg = contrasts)
   Y <- matrix(data[,1],ncol = 1)
 
-  #solve directly
-  beta <- solve( t(X) %*% X, diag(ncol(X)),1e-36 ) %*% t(X) %*% Y
+  #find the rank and take QR decomposition
+  qr_data <- qr(X)
+  rank <- qr_data$rank
+
+  if(rank==ncol(X)){
+    #solve directly
+    beta <- solve( t(X) %*% X, diag(ncol(X)),1e-36 ) %*% t(X) %*% Y
+    beta <- list(coefficients = beta)
+  }else{
+    #QR decomposition
+    Q <- qr.Q(qr_data)
+    R <- qr.R(qr_data)[,1:rank]
+    QT <- crossprod(Q,Y)
+    beta  <- backsolve(R,QT)
+    beta <- list(coefficients = c(beta,NA))
+  }
 
   #change into list
-  return(list(coefficients = beta))
+  return(beta)
+
 }
 
 
