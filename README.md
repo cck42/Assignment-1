@@ -77,7 +77,5 @@ Assignment 1 Lessons
 -   How to resolve Travis thing (is this because all my github accounts
     are associated with my gmail?)  
 -   What is a transposition? Why is it used?  
--   Clarify what he means us to do with the constants for factor
-    variables  
 -   How to submit (fork, sandbox, or create own repository)  
--   Why is my beautiful markdown file not being recognized
+-   Why is my beautiful markdown file not working

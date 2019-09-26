@@ -1,14 +1,14 @@
 Package: linearmodel
-Title: What the Package Does (One Line, Title Case)
+Title: Mimicks lm() function
 Version: 0.0.0.9000
 Authors@R: 
-    person(given = "First",
-           family = "Last",
+    person(given = "Chaney",
+           family = "Kalinich",
            role = c("aut", "cre"),
-           email = "first.last@example.com",
-           comment = c(ORCID = "YOUR-ORCID-ID"))
-Description: What the package does (one paragraph).
-License: What license it uses
+           email = "chaney.kalinich@yale.edu",
+           comment = c(ORCID = "0000-0001-9675-0065"))
+Description: This package is completing the requirements of assignment 1 for BIS557. The package contains 2 functions. linear_model() is a function which mimics the lm() built-in function. It returns coefficients for a linear model given data and a formula. The linear_model2() function does the same thing using gradient descent rather than direct solving.
+License: MIT License
 Encoding: UTF-8
 LazyData: true
 Suggests: 

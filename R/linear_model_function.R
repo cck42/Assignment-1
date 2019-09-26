@@ -1,12 +1,12 @@
-#' a linear model function mimicking lm
+#' A linear model function mimicking lm
 #'
 #' @param form A formula
-#' @param raw_data A data frame
-#' @param const A list of contrasts for factor variables
-#'
+#' @param data A data frame
+#' @param const (optional) A list of contrasts for factor variables
+#' @return A list of coefficients for \code{data} in the formula \code{form}
 #' @examples
-#'
-#'
+#' linear_model(Sepal.Length ~ ., iris)
+#' linear_model(Sepal.Length ~ ., iris, contrasts = list(Species = "contr.sum"))
 #'
 
 #-----------------------------------------------------------------------------
@@ -53,6 +53,16 @@ dF <- function(beta, Y, X){
   (2 * t(X) %*%  X  %*% beta - 2 *  t(X) %*%  Y)
 }
 
+#' A linear model function which solves using gradient descent
+#'
+#'@param form A formula
+#' @param data A data frame
+#' @param const (optional) A list of contrasts for factor variables
+#' @return A list of coefficients for \code{data} in the formula \code{form}
+#' @examples
+#' linear_model2(Sepal.Length ~ ., iris)
+#' linear_model2(Sepal.Length ~ ., iris, contrasts = list(Species = "contr.sum"))
+#'
 linear_model2 <- function(form, data, contrasts = NULL){
 #Make a model matrix
   X <- model.matrix(form, data, contrasts.arg = contrasts)
